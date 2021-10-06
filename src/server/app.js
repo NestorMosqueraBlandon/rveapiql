@@ -34,6 +34,7 @@ const resolvers = {
             return posts;
         },
     },
+    
     Mutation: {
         async createPost(_, {title, description, markdown, category}){
             const newPost = new Post({
