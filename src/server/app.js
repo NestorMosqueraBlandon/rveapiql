@@ -13,6 +13,7 @@ type Post {
   sanitizedHtml: String
   category: String
   createdAt: String
+  slug: String
 }
 
 type Query {
