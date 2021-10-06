@@ -1,0 +1,29 @@
+{
+  "name": "rveapiql",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.3.0",
+    "cors": "^2.8.5",
+    "dompurify": "^2.3.3",
+    "graphql": "^15.6.1",
+    "jsdom": "^17.0.0",
+    "marked": "^3.0.4",
+    "mongoose": "^6.0.9",
+    "multer": "^1.4.3",
+    "path": "^0.12.7",
+    "slugify": "^1.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
