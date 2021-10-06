@@ -18,7 +18,7 @@ type Post {
 
 type Query {
   posts: [Post]
-  post: [Post]
+  post(slug: String): [Post]
 }
 
 type Mutation{
