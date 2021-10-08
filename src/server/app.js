@@ -34,7 +34,7 @@ const resolvers = {
             const posts = await Post.find({});
             return posts;
         },
-        async post(_, {slug} ) {
+        async getPost(_, {slug} ) {
             const post = await Post.find({slug: slug});
             return post;
         },
