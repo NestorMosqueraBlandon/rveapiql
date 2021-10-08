@@ -18,7 +18,7 @@ type Post {
 
 type Query {
   posts: [Post]
-  post(slug: String): [Post]
+  getPost(slug: String): [Post]
 }
 
 type Mutation{
@@ -32,12 +32,10 @@ const resolvers = {
     Query:{
          async posts(_, {} ) {
             const posts = await Post.find({});
-
             return posts;
         },
         async post(_, {slug} ) {
-            const post = await Post.find({slud: slug});
-
+            const post = await Post.find({slug: slug});
             return post;
         },
     },
