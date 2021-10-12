@@ -1,4 +1,5 @@
 import {ApolloServer, gql} from "apollo-server"
+import { subscribe } from "graphql";
 
 import Post from "../models/Post.js"
 // const multer = require("multer");
@@ -14,6 +15,7 @@ type Post {
   category: String
   createdAt: String
   slug: String
+  image: String
 }
 
 type Query {
@@ -22,7 +24,7 @@ type Query {
 }
 
 type Mutation{
-    createPost(title: String, description:String, markdown:String, category:String): String
+    createPost(title: String, description:String, markdown:String, category:String, image:String): String
 }
 `
 
@@ -41,18 +43,25 @@ const resolvers = {
     },
     
     Mutation: {
-        async createPost(_, {title, description, markdown, category}){
+        async createPost(_, {title, description, markdown, category, image}){
             const newPost = new Post({
                 title,
                 description,
                 markdown,
-                category
+                category,
+                image
             })
             
             await newPost.save();
             return "Created Successfully"
+        },
+
+        async subscriber(_, {name, email}){
+            // const newSubscriber =
         }
     }
+
+   
 }
 
 const server = new ApolloServer({typeDefs, resolvers});
