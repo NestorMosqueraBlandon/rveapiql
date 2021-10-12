@@ -70,8 +70,9 @@ const resolvers = {
 
         async deletePost(_, {id}){
             const post = await Post.findById(id);
+
             if(post){
-                const deletePost = await deletePost.remove();
+                const deletePost = await post.remove();
                 return "Deleted Successfully"
             }
 
