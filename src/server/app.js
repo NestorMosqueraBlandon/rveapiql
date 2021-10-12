@@ -2,6 +2,7 @@ import {ApolloServer, gql} from "apollo-server"
 import { subscribe } from "graphql";
 
 import Post from "../models/Post.js"
+import Subscriber from "../models/Subscriber.js";
 // const multer = require("multer");
 // const path = require("path");
 
@@ -18,9 +19,16 @@ type Post {
   image: String
 }
 
+type Subscriber{
+    id: ID
+    name: String
+    email: String
+}
+
 type Query {
   posts: [Post]
   getPost(slug: String): [Post]
+  getSubscribers: [Subscriber]
 }
 
 type Mutation{
@@ -28,8 +36,6 @@ type Mutation{
     subscriber(name: String, email: String): String
 }
 `
-
-
 
 const resolvers = {
     Query:{
@@ -40,6 +46,10 @@ const resolvers = {
         async getPost(_, {slug} ) {
             const post = await Post.find({slug: slug});
             return post;
+        },
+        async getSubscribers(_, {} ) {
+            const subscribers = await Subscriber.find({});
+            return subscribers;
         },
     },
     
@@ -58,7 +68,13 @@ const resolvers = {
         },
 
         async subscriber(_, {name, email}){
-            // const newSubscriber =
+            const newSubscriber = new Subscriber({
+                name,
+                email
+            });
+
+            await newSubscriber.save();
+            return "Created Successfully"
         }
     }
 

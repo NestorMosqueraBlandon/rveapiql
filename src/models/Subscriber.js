@@ -16,17 +16,5 @@ const subscriberSchema = new mongoose.Schema({
 }
 )
 
-postSchema.pre("validate", function(next) {
-    if(this.title){
-        this.slug = slugify(this.title, {lower:true, strict: true})
-    }
-
-    if(this.markdown){
-        this.sanitizedHtml = dompurify.sanitize(marked(this.markdown))
-    }
-
-    next()
-})
-
-const Subscriber = mongoose.model('Subscriber', subscriberchema);
-export default Post;
+const Subscriber = mongoose.model('Subscriber', subscriberSchema);
+export default Subscriber;
