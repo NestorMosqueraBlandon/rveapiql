@@ -67,6 +67,17 @@ const resolvers = {
             return "Created Successfully"
         },
 
+        async createPost(_, {id}){
+            const post = await Post.findById(id);
+            if(post){
+                const deletePost = await deletePost.remove();
+                return "Deleted Successfully"
+            }
+
+            return "Deleted Error"
+            
+        },
+
         async subscriber(_, {name, email}){
             const newSubscriber = new Subscriber({
                 name,
