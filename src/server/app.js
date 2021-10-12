@@ -33,6 +33,7 @@ type Query {
 
 type Mutation{
     createPost(title: String, description:String, markdown:String, category:String, image:String): String
+    deletePost(id: String): String
     subscriber(name: String, email: String): String
 }
 `
@@ -67,7 +68,7 @@ const resolvers = {
             return "Created Successfully"
         },
 
-        async createPost(_, {id}){
+        async deletePost(_, {id}){
             const post = await Post.findById(id);
             if(post){
                 const deletePost = await deletePost.remove();
