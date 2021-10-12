@@ -25,6 +25,7 @@ type Query {
 
 type Mutation{
     createPost(title: String, description:String, markdown:String, category:String, image:String): String
+    subscriber(name: String, email: String): String
 }
 `
 
