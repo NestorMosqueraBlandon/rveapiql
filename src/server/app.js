@@ -34,7 +34,7 @@ type Query {
 }
 
 type Mutation{
-    createPost(title: String, description:String, markdown:String, category:String, image:String): String
+    createPost(title:String, description:String, markdown:String, category:String, image:String): String
     deletePost(id: String): String
     subscriber(name: String, email: String): String
 }
@@ -59,8 +59,6 @@ const resolvers = {
     Mutation: {
         async createPost(_, {title, description, markdown, category, image}){
             console.log("entro")
-            console.log(userphoto)
-            console.log(username)
 
             const newPost = new Post({
                 title,
@@ -68,8 +66,6 @@ const resolvers = {
                 markdown,
                 category,
                 image,
-                username,
-                userphoto
             })
             
             await newPost.save();
