@@ -1,25 +1,25 @@
-import mongoose  from "mongoose";
+import mongoose from "mongoose";
 import marked from "marked"
 import slugify from "slugify";
 import createDomPurify from "dompurify"
-import {JSDOM} from "jsdom"
+import { JSDOM } from "jsdom"
 
 const dompurify = createDomPurify(new JSDOM().window)
 
 const postSchema = new mongoose.Schema({
-    title:{
+    title: {
         type: String,
         required: true
     },
-    description:{
+    description: {
         type: String,
         required: true
     },
-    markdown:{
+    markdown: {
         type: String,
         required: true
     },
-    slug:{
+    slug: {
         type: String,
         required: true,
         unique: true
@@ -33,22 +33,29 @@ const postSchema = new mongoose.Schema({
         required: false
     },
     category: {
-        type:String,
+        type: String,
         required: false
+    },
+    username: {
+        type:String
+    },
+    
+    userphoto: {
+        type:String
     }
 },
-{
-    versionKey: false,
-    timestamps: true,
-}
+    {
+        versionKey: false,
+        timestamps: true,
+    }
 )
 
-postSchema.pre("validate", function(next) {
-    if(this.title){
-        this.slug = slugify(this.title, {lower:true, strict: true})
+postSchema.pre("validate", function (next) {
+    if (this.title) {
+        this.slug = slugify(this.title, { lower: true, strict: true })
     }
 
-    if(this.markdown){
+    if (this.markdown) {
         this.sanitizedHtml = dompurify.sanitize(marked(this.markdown))
     }
 
