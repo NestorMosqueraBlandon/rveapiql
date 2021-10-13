@@ -43,7 +43,7 @@ type Mutation{
 const resolvers = {
     Query:{
          async posts(_, {} ) {
-            const posts = await Post.find({ createdAt: -1});
+            const posts = await Post.find({}).sort({createdAt: -1});
             return posts;
         },
         async getPost(_, {slug} ) {
