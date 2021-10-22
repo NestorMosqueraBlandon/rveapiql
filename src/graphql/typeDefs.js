@@ -23,11 +23,14 @@ type Subscriber{
 
 type User{
     id: ID
-    lastname: String
     firstname: String
+    middlename: String
+    lastname: String
+    middlelastname: String
+    username: String
     email: String
     token: String
-    name: String
+    points: String
     createdAt:String
 }
 

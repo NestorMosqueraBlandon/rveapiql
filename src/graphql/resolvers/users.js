@@ -70,7 +70,7 @@ export default {
                 username,
                 password,
                 lastname,
-                firstname
+                firstname,
             });
 
             const res = await newUser.save();
