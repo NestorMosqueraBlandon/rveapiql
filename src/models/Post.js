@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+
+const {Schema} = mongoose;
 import marked from "marked"
 import slugify from "slugify";
 import createDomPurify from "dompurify"
@@ -41,6 +43,26 @@ const postSchema = new mongoose.Schema({
     },
     userphoto: {
         type: String
+    },
+
+    comments: [
+        {
+            body: String,
+            username: String,
+            createdAt: String
+        }
+    ],
+
+    likes: [
+        {
+            username: String,
+            createdAt: String
+        }
+    ],
+
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "users"
     }
 },
     {
