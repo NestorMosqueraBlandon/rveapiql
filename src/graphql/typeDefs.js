@@ -3,7 +3,7 @@ import { gql } from "apollo-server";
 const typeDefs = gql`
 
 type Post {
-    id: ID
+  id: ID
   title: String
   description: String
   sanitizedHtml: String

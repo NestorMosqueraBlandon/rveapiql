@@ -60,9 +60,7 @@ export default {
                     }
                 })
             }
-
-
-
+            
             password = await bcrypt.hash(password, 12);
 
             const newUser = new User({
