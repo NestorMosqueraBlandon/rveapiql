@@ -38,6 +38,7 @@ type User{
     views: String
     level: String
     followers: String
+    photo: String
 }
 
 input SignupInput{
