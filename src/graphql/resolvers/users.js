@@ -13,8 +13,8 @@ const generateToken = (user) => {
 }
 export default {
     Query: {
-        async users(){
-            const users = await User.find();
+        async users(_, {filter}){
+            const users = await User.find({}).sort({points: -1});
             return users;
         },
     },

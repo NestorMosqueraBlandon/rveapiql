@@ -32,7 +32,6 @@ type User{
     token: String
     points: String
     createdAt:String
-    points: String
     games: String
     tournaments: String
     friends: String
@@ -51,7 +50,7 @@ input SignupInput{
 }
 
 type Query {
-  users: [User]
+  users(filter: String): [User]
   posts: [Post]
   getPost(slug: String): [Post]
   getSubscribers: [Subscriber]
