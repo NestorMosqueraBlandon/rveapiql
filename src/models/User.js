@@ -15,6 +15,7 @@ const userSchema = new mongoose.Schema({
     friends: {type: Number, default: 0},
     views: {type: Number, default: 0},
     level: {type: Number, default: 0},
+    followers: {type: Number, default: 0},
     isActive: {type: Boolean},
     isBlocked: {type: Boolean},
     isReported:  {type: Boolean},
