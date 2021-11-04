@@ -32,6 +32,13 @@ type User{
     token: String
     points: String
     createdAt:String
+    points: String
+    games: String
+    tournaments: String
+    friends: String
+    views: String
+    level: String
+    followers: String
 }
 
 input SignupInput{
