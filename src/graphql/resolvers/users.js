@@ -69,6 +69,7 @@ export default {
                 password,
                 lastname,
                 firstname,
+                points: 15
             });
 
             const res = await newUser.save();
