@@ -39,6 +39,7 @@ type User{
     level: String
     followers: String
     photo: String
+    phone: String
 }
 
 input SignupInput{

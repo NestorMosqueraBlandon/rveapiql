@@ -9,7 +9,7 @@ const generateToken = (user) => {
         id: user.id,
         email: user.email,
         username: user.username
-    }, SECRET_KEY, { expiresIn: "1h"});
+    }, SECRET_KEY, { expiresIn: "1d"});
 }
 export default {
     Query: {
