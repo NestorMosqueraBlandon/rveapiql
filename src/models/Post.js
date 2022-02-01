@@ -44,7 +44,6 @@ const postSchema = new mongoose.Schema({
     userphoto: {
         type: String
     },
-
     comments: [
         {
             body: String,
@@ -52,14 +51,15 @@ const postSchema = new mongoose.Schema({
             createdAt: String
         }
     ],
-
+    views:{
+        type: Number
+    },
     likes: [
         {
             username: String,
             createdAt: String
         }
     ],
-
     user: {
         type: Schema.Types.ObjectId,
         ref: "users"

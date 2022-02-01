@@ -15,6 +15,23 @@ type Post {
   userphoto: String
 }
 
+type Computer {
+  id: ID
+  name: String
+  slug: String
+  specs: [Spec]
+  price: String
+  createdAt: String
+  description: String
+  image: String
+  offer: String
+  games: String
+  programs: String
+  available: String
+  monitor: String
+  type: String
+}
+
 type Subscriber{
     id: ID
     name: String
@@ -51,11 +68,20 @@ input SignupInput{
     email: String
 }
 
+type Spec{
+  name: String
+  price: String
+}
+
+
 type Query {
   users(filter: String): [User]
   posts: [Post]
   getPost(slug: String): [Post]
   getSubscribers: [Subscriber]
+  computers: [Computer]
+  getComputer(slug: String): [Computer]
+
 }
 
 type Mutation{
